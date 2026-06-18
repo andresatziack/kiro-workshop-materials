@@ -1,0 +1,219 @@
+/* =========================================================================
+   Kiro Visual Language — Design Tokens (framework-agnostic)
+   Drop-in CSS custom properties. Import once globally.
+
+   Recreated from observation of kiro.dev — NOT proprietary assets.
+   Colors are expressed as raw HSL channels ("H S% L%") so you can compose
+   alpha with hsl(var(--token) / <alpha>). Hex equivalents are noted inline.
+   ========================================================================= */
+
+:root {
+  /* ---- Brand: violet scale (the ONE saturated color) ------------------ */
+  --k-purple-300: 264 100% 81%;   /* #C59EFF  hover/links-light            */
+  --k-purple-400: 263 100% 69%;   /* #9F63FF  link default                */
+  --k-purple-500: 264 100% 64%;   /* #9046FF  PRIMARY brand / focus ring  */
+  --k-purple-600: 270  79% 53%;   /* #870FFF  pressed / deep accent       */
+  --k-purple-700: 274  87% 43%;   /* #7C00DB                              */
+  --k-purple-900: 264  64% 32%;   /* #4100A3  darkest brand tint          */
+
+  /* ---- Neutrals: "prey" purple-tinted grays --------------------------- */
+  --k-prey-100: 260 12% 95%;      /* #F2F0F4 */
+  --k-prey-200: 264  7% 86%;      /* #DAD8DE */
+  --k-prey-300: 263  7% 76%;      /* #C1BEC6 */
+  --k-prey-400: 260  6% 58%;      /* #938F9B */
+  --k-prey-500:   0  0% 36%;      /* #5C5C5C */
+  --k-prey-600: 267  6% 29%;      /* #4A464F */
+  --k-prey-700: 266 13% 21%;      /* #352F3D */
+  --k-prey-750: 264 12% 16%;      /* #29242F */
+  --k-prey-800: 270 12% 13%;      /* #1F1B24 */
+  --k-prey-900: 266 14% 10%;      /* #19161D  signature dark background    */
+
+  /* ---- Dark surface elevation ----------------------------------------- */
+  --k-elevation-0:   0  0%  0%;   /* #000000 */
+  --k-elevation-1: 266 14% 10%;   /* #19161D  base page bg (dark)          */
+  --k-elevation-2: 267 13% 16%;   /* #29242F  cards / raised               */
+  --k-elevation-3: 266 13% 21%;   /* #352F3D  popovers / highest           */
+
+  /* ---- Functional / status accents ------------------------------------ */
+  --k-blue-400:  217 89% 69%;     /* #69A0F6 */
+  --k-green-400: 149 65% 52%;     /* #33D480  success                      */
+  --k-teal-400:  183 62% 55%;     /* #4FCBD6 */
+  --k-red-400:   353 94% 62%;     /* #FB4257  error/destructive            */
+
+  /* ---- Radii ---------------------------------------------------------- */
+  --k-radius:      0.25rem;       /* base control radius (4px)             */
+  --k-radius-sm:   0.375rem;      /* 6px  */
+  --k-radius-md:   0.5rem;        /* 8px  */
+  --k-radius-lg:   0.75rem;       /* 12px */
+  --k-radius-xl:   1rem;          /* 16px cards */
+  --k-radius-2xl:  1.5rem;        /* 24px large panels */
+  --k-radius-full: 9999px;        /* pills / avatars */
+
+  /* ---- Spacing scale (8px rhythm) ------------------------------------- */
+  --k-space-1: 0.25rem;   /*  4px */
+  --k-space-2: 0.5rem;    /*  8px */
+  --k-space-3: 0.75rem;   /* 12px */
+  --k-space-4: 1rem;      /* 16px */
+  --k-space-5: 1.5rem;    /* 24px */
+  --k-space-6: 2rem;      /* 32px */
+  --k-space-7: 3rem;      /* 48px */
+  --k-space-8: 4rem;      /* 64px */
+  --k-space-9: 6rem;      /* 96px  — section padding */
+  --k-space-10: 8rem;     /* 128px — large section gap */
+
+  /* ---- Layout --------------------------------------------------------- */
+  --k-container:      1280px;  /* primary content max-width */
+  --k-container-wide: 1480px;  /* full-bleed-ish sections   */
+  --k-measure:        720px;   /* prose/text column max     */
+  --k-gutter:         1.5rem;  /* page side padding (mobile) */
+
+  /* ---- Typography: families (open substitutes for AWS fonts) ---------- */
+  --k-font-display: "Space Grotesk", "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+  --k-font-body:    "Inter", "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --k-font-code:    "JetBrains Mono", "Fragment Mono", "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ---- Type scale: fluid (clamp + container query units) -------------- */
+  /* Use cqw where a container-query context exists; otherwise vw works.  */
+  --k-text-xs:   clamp(0.75rem, 0.8cqw, 0.75rem);   /* 12px */
+  --k-text-sm:   clamp(0.75rem, 1cqw,   0.875rem);  /* 12–14px */
+  --k-text-base: clamp(0.875rem, 1.1cqw, 1rem);     /* 14–16px */
+  --k-text-md:   clamp(0.9rem, 1.2cqw,  1.125rem);  /* 14–18px */
+  --k-text-lg:   clamp(1.2rem, 1.7cqw,  1.5rem);    /* 19–24px */
+  --k-text-xl:   clamp(1.4rem, 1.9cqw,  1.75rem);   /* 22–28px */
+  --k-text-2xl:  clamp(1.6rem, 2.2cqw,  2rem);      /* 26–32px */
+  --k-text-3xl:  clamp(1.8rem, 2.5cqw,  2.25rem);   /* 29–36px */
+  --k-text-4xl:  clamp(2.4rem, 3.3cqw,  3rem);      /* 38–48px */
+  --k-text-5xl:  clamp(3.4rem, 4.7cqw,  4.25rem);   /* 54–68px — hero */
+
+  /* ---- Type: weights & line-heights ----------------------------------- */
+  --k-weight-regular: 400;
+  --k-weight-medium:  500;
+  --k-weight-semibold:600;
+  --k-weight-bold:    700;
+  --k-leading-tight:  1.1;   /* display headings */
+  --k-leading-snug:   1.25;  /* sub-headings     */
+  --k-leading-normal: 1.6;   /* body             */
+  --k-tracking-tight: -0.02em; /* large mono display reads better slightly tight */
+
+  /* ---- Shadows / elevation (soft, subtle) ----------------------------- */
+  --k-shadow-sm: 0 1px 2px rgba(0,0,0,.12);
+  --k-shadow-md: 0 4px 6px -1px rgba(0,0,0,.10), 0 2px 4px -1px rgba(0,0,0,.06);
+  --k-shadow-lg: 0 12px 32px -8px rgba(0,0,0,.45);
+  --k-shadow-dark: 0 4px 12px rgba(0,0,0,.30);
+  --k-glow-purple: 0 0 0 1px hsl(var(--k-purple-500) / .35),
+                   0 8px 30px -8px hsl(var(--k-purple-500) / .45);
+
+  /* ---- Motion (see motion.md) ----------------------------------------- */
+  --k-ease-out:    cubic-bezier(0, 0, .2, 1);
+  --k-ease-in:     cubic-bezier(.4, 0, 1, 1);
+  --k-ease-in-out: cubic-bezier(.4, 0, .2, 1);
+  --k-dur-fast:   .15s;
+  --k-dur-base:   .25s;
+  --k-dur-slow:   .35s;
+
+  /* ---- Code block syntax palette (on dark) ---------------------------- */
+  --k-code-bg:        #020617; /* near-black slate */
+  --k-code-text:      #ffffffcc;
+  --k-code-comment:   #ffffff99;
+  --k-code-keyword:   #c2a0fd; /* violet  */
+  --k-code-function:  #8dc8fb; /* blue    */
+  --k-code-tag:       #8dc8fb;
+  --k-code-string:    #80ffb5; /* green   */
+  --k-code-variable:  #80f4ff; /* cyan    */
+  --k-code-entity:    #ff80b5; /* pink    */
+  --k-code-number:    #ffafd1;
+  --k-code-operator:  #ffffffcc;
+
+  /* ---- Signature rainbow gradient (use sparingly, e.g. one word) ------ */
+  --k-gradient-rainbow: linear-gradient(300deg,#ff0080,#ff8c00,#40e0d0,#7b68ee,#ff1493,#ff0080);
+  --k-gradient-brand:   linear-gradient(135deg, hsl(var(--k-purple-500)), hsl(var(--k-purple-700)));
+}
+
+/* =========================================================================
+   THEME: semantic tokens. Dark is the default (design dark-first).
+   ========================================================================= */
+:root,
+[data-theme="dark"] {
+  --k-bg:            hsl(var(--k-elevation-1));   /* #19161D */
+  --k-bg-subtle:     hsl(var(--k-elevation-0));   /* #000000 sections */
+  --k-surface:       hsl(var(--k-elevation-2));   /* cards   */
+  --k-surface-raised:hsl(var(--k-elevation-3));   /* popovers*/
+  --k-fg:            hsl(0 0% 98%);               /* #FAFAFA */
+  --k-fg-muted:      hsl(var(--k-prey-300));      /* secondary text */
+  --k-fg-subtle:     hsl(var(--k-prey-400));      /* tertiary text  */
+  --k-border:        hsl(var(--k-prey-700));      /* #352F3D 1px */
+  --k-border-strong: hsl(var(--k-prey-600));
+  --k-primary:       hsl(var(--k-purple-500));
+  --k-primary-fg:    hsl(0 0% 100%);
+  --k-link:          hsl(var(--k-purple-400));
+  --k-link-hover:    hsl(var(--k-purple-300));
+  --k-ring:          hsl(var(--k-purple-500));
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --k-bg:            hsl(0 0% 100%);              /* #FFFFFF */
+  --k-bg-subtle:     hsl(var(--k-prey-100));      /* #F2F0F4 */
+  --k-surface:       hsl(0 0% 100%);
+  --k-surface-raised:hsl(0 0% 100%);
+  --k-fg:            hsl(240 10% 3.9%);           /* #09090B */
+  --k-fg-muted:      hsl(var(--k-prey-600));
+  --k-fg-subtle:     hsl(var(--k-prey-500));
+  --k-border:        hsl(var(--k-prey-200));
+  --k-border-strong: hsl(var(--k-prey-300));
+  --k-primary:       hsl(var(--k-purple-500));
+  --k-primary-fg:    hsl(0 0% 100%);
+  --k-link:          hsl(var(--k-purple-600));
+  --k-link-hover:    hsl(var(--k-purple-500));
+  --k-ring:          hsl(var(--k-purple-500));
+  color-scheme: light;
+}
+
+/* Optional: follow the OS preference automatically when no data-theme is set */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --k-bg: hsl(0 0% 100%);
+    --k-bg-subtle: hsl(var(--k-prey-100));
+    --k-surface: hsl(0 0% 100%);
+    --k-surface-raised: hsl(0 0% 100%);
+    --k-fg: hsl(240 10% 3.9%);
+    --k-fg-muted: hsl(var(--k-prey-600));
+    --k-fg-subtle: hsl(var(--k-prey-500));
+    --k-border: hsl(var(--k-prey-200));
+    --k-border-strong: hsl(var(--k-prey-300));
+    --k-link: hsl(var(--k-purple-600));
+    --k-link-hover: hsl(var(--k-purple-500));
+    color-scheme: light;
+  }
+}
+
+/* =========================================================================
+   Minimal base layer (optional starting point)
+   ========================================================================= */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--k-bg);
+  color: var(--k-fg);
+  font-family: var(--k-font-body);
+  font-size: var(--k-text-base);
+  line-height: var(--k-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4 {
+  font-family: var(--k-font-display);
+  font-weight: var(--k-weight-medium);
+  line-height: var(--k-leading-tight);
+  letter-spacing: var(--k-tracking-tight);
+}
+a { color: var(--k-link); text-decoration: none; transition: color var(--k-dur-base) var(--k-ease-out); }
+a:hover { color: var(--k-link-hover); }
+code, pre, kbd { font-family: var(--k-font-code); }
+
+/* Universal focus-visible ring (accessibility) */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--k-ring);
+  outline-offset: 2px;
+  border-radius: var(--k-radius);
+}
